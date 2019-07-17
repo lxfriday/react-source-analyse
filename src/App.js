@@ -2,7 +2,12 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function App({ children }) {
+  console.log({
+    children,
+  });
+  
+  console.log(React.Children.count(children));
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +22,10 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
+          <br />
+          <br />
+          <br />
+          {children}
         </a>
       </header>
     </div>
