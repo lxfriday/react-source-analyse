@@ -11,6 +11,8 @@ import TestThis from './pages/other/TestThis';
 import Component from './pages/component/Component';
 import PureComponent from './pages/component/PureComponent';
 
+import Ref from './pages/ref/Ref';
+
 
 export const initialPage = 'UseCallback';
 
@@ -27,4 +29,6 @@ export default {
 
   Component,
   PureComponent,
+
+  Ref,
 };
