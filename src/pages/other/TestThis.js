@@ -1,21 +1,18 @@
-
-import React, { Component, useReducer } from 'react';
+import React, { Component } from "react";
 
 class TestThis extends Component {
-  componentDidMount() {
-
-  }
+  componentDidMount() {}
 
   handleClick() {
-    console.log('handleClick', this);
+    console.log("handleClick", this);
   }
 
   handleBindClick1 = () => {
-    console.log('handleBindClick1', this);
-  }
+    console.log("handleBindClick1", this);
+  };
 
   handleBindClick2() {
-   console.log('handleBindClick2', this);
+    console.log("handleBindClick2", this);
   }
 
   render() {

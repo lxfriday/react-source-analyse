@@ -1,36 +1,31 @@
-import React, { PureComponent, Component, createElement } from 'react';
+import React, { PureComponent } from "react";
 
 class PureComp extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
       userInfo: {
-        name: 'lxfriday',
-        age: 24,
+        name: "lxfriday",
+        age: 24
       },
-      school: 'hzzz',
+      school: "hzzz"
     };
   }
 
   handleChangeUserInfo = () => {
-    const {
-      userInfo,
-    } = this.state;
-    userInfo.sex = 'male';
+    const { userInfo } = this.state;
+    userInfo.sex = "male";
 
-    console.log('userInfo', userInfo);
+    console.log("userInfo", userInfo);
     this.setState({ userInfo: userInfo });
   };
 
   handleChangeSchool = () => {
-    this.setState({ school: 'zzzh' });
+    this.setState({ school: "zzzh" });
   };
 
   render() {
-    const {
-      userInfo,
-      school,
-    } = this.state;
+    const { userInfo, school } = this.state;
     return (
       <div>
         <button onClick={this.handleChangeUserInfo}>change userInfo</button>

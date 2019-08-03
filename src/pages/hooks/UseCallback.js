@@ -1,12 +1,10 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from "react";
 
 function UseCallback({ children }) {
-  const [param, setParam] = useState({count: 0});
+  const [param, setParam] = useState({ count: 0 });
   const [a, setA] = useState(1);
 
-  const callback = useCallback(() => a,
-    [a],
-  );
+  const callback = useCallback(() => a, [a]);
 
   return (
     <div className="App">
@@ -25,10 +23,10 @@ function UseCallback({ children }) {
 function Child({ callback }) {
   const [count, setCount] = useState(() => callback());
 
-  console.log('exec');
+  console.log("exec");
   useEffect(() => {
     setCount(callback());
-    console.log('child useEffect');
+    console.log("child useEffect");
   }, [callback]);
 
   return <div>{count} </div>;

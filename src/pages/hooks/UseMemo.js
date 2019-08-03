@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 
 function UseMemo({ children }) {
   const [param, setParam] = useState({count: 0});
