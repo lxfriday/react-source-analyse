@@ -39,6 +39,6 @@ class PureComp extends PureComponent {
   }
 }
 
-console.log(<PureComp />);
+// console.log(<PureComp />);
 
 export default PureComp;

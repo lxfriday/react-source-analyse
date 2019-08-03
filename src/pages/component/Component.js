@@ -28,9 +28,9 @@ class PureComp extends PureComponent {
   }
 }
 
-console.log(<FuncComp />);
-console.log(<Comp />);
-console.log(<PureComp />);
+// console.log(<FuncComp />);
+// console.log(<Comp />);
+// console.log(<PureComp />);
 export default class extends Component {
   render() {
     return (
