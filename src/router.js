@@ -13,6 +13,8 @@ import PureComponent from './pages/component/PureComponent';
 
 import Ref from './pages/ref/Ref';
 
+import Children from './pages/children/Children';
+
 
 export const initialPage = 'UseCallback';
 
@@ -31,4 +33,6 @@ export default {
   PureComponent,
 
   Ref,
+
+  Children,
 };
