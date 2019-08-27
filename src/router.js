@@ -1,22 +1,23 @@
-import UseCallback from './pages/hooks/UseCallback';
-import UseMemo from './pages/hooks/UseMemo';
-import UseLayoutEffect from './pages/hooks/UseLayoutEffect';
-import UseContext from './pages/hooks/UseContext';
+import UseCallback from './pages/hooks/UseCallback'
+import UseMemo from './pages/hooks/UseMemo'
+import UseLayoutEffect from './pages/hooks/UseLayoutEffect'
+import UseContext from './pages/hooks/UseContext'
 
-import CreateElement from './pages/element/CreateElement';
-import CreateFactory from './pages/element/CreateFactory';
+import CreateElement from './pages/element/CreateElement'
+import CreateFactory from './pages/element/CreateFactory'
 
-import TestThis from './pages/other/TestThis';
+import TestThis from './pages/other/TestThis'
 
-import Component from './pages/component/Component';
-import PureComponent from './pages/component/PureComponent';
+import Component from './pages/component/Component'
+import PureComponent from './pages/component/PureComponent'
 
-import Ref from './pages/ref/Ref';
+import Ref from './pages/ref/Ref'
 
-import Children from './pages/children/Children';
+import Children from './pages/children/Children'
 
+import Context from './pages/context/Context'
 
-export const initialPage = 'UseCallback';
+export const initialPage = 'UseCallback'
 
 export default {
   UseCallback,
@@ -35,4 +36,6 @@ export default {
   Ref,
 
   Children,
-};
+
+  Context,
+}
