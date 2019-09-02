@@ -1,4 +1,4 @@
-import React, { Component, createContext, useConText } from 'react'
+import React, { Component, createContext } from 'react'
 
 const ColorContext = createContext(null)
 
@@ -14,7 +14,16 @@ class App extends Component {
   }
 
   render() {
-    return <Provider value={this.state}>{this.props.children}</Provider>
+    return (
+      <Provider
+        value={{
+          color: 'red',
+          background: 'cyan',
+        }}
+      >
+        {this.props.children}
+      </Provider>
+    )
   }
 }
 
