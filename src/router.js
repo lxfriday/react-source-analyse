@@ -17,6 +17,10 @@ import Children from './pages/children/Children'
 
 import Context from './pages/context/Context'
 
+import UseContext2 from './pages/context/UseContext'
+
+import ReactRedux from './pages/context/ReactRedux'
+
 export const initialPage = 'UseCallback'
 
 export default {
@@ -38,4 +42,6 @@ export default {
   Children,
 
   Context,
+  UseContext2,
+  ReactRedux,
 }
