@@ -1,10 +1,9 @@
 import React from 'react'
-import { Provider, connect } from 'react-redux'
+import { Provider, connect } from './lib/react-redux'
 import configStore from './store'
 import { ADD, MINUS } from './reducers/counter'
 const store = configStore()
 function Paragraph({ dispatch, num }) {
-  console.log('Paragraph?')
   return (
     <div style={{ textAlign: 'center' }}>
       <button onClick={() => dispatch({ type: `counter/${ADD}` })}>+ 增加</button>
@@ -13,21 +12,14 @@ function Paragraph({ dispatch, num }) {
     </div>
   )
 }
-const ConnectParagraph = connect(({ counter }) => {
-  return { ...counter }
-})(Paragraph)
-
-console.log(<ConnectParagraph />)
-
-function TestRender() {
-  console.log('render?')
-  return null
-}
+const ConnectParagraph = connect(
+  ({ counter }) => ({ ...counter }),
+  dispatch => ({ dispatch })
+)(Paragraph)
 
 export default function ReactRedux() {
   return (
     <Provider store={store}>
-      <TestRender />
       <ConnectParagraph />
     </Provider>
   )

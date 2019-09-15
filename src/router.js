@@ -20,6 +20,7 @@ import Context from './pages/context/Context'
 import UseContext2 from './pages/context/UseContext'
 
 import ReactRedux from './pages/context/ReactRedux'
+import MiniRedux from './pages/miniredux/ReactRedux'
 
 export const initialPage = 'UseCallback'
 
@@ -44,4 +45,5 @@ export default {
   Context,
   UseContext2,
   ReactRedux,
+  MiniRedux,
 }
