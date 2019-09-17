@@ -3,7 +3,7 @@
  * `npm i -S @lxfriday/react-redux`
  */
 
-import React, { createContext, useContext, useReducer } from 'react'
+import React, { createContext, useContext, useReducer, useEffect } from 'react'
 // 贯穿 App 的 context
 const ReactReduxContext = createContext(null)
 
@@ -36,13 +36,18 @@ export function connect(mapStateToProps, mapDispatchToProps) {
       const [, forceComponentUpdateDispatch] = useReducer(storeStateUpdatesReducer, null, initStateUpdates)
       const state = store.getState()
       // 订阅 dispatch 行为
-      store.subscribe(() => {
-        forceComponentUpdateDispatch({
-          type: '@@redux/STORE_UPDATED',
-          payload: {
-            latestStoreState: state,
-          },
+      useEffect(() => {
+        const unsubscribe = store.subscribe(() => {
+          forceComponentUpdateDispatch({
+            type: '@@redux/STORE_UPDATED',
+            payload: {
+              latestStoreState: state,
+            },
+          })
         })
+        return () => {
+          unsubscribe()
+        }
       })
 
       return <WrappedComponent {...props} {...mapStateToProps(state, props)} {...mapDispatchToProps(store.dispatch, props)} />
