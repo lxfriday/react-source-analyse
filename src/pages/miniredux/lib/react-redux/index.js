@@ -1,6 +1,5 @@
 /**
  * 模拟实现 react-redux
- * `npm i -S @lxfriday/react-redux`
  */
 
 import React, { createContext, useContext, useReducer, useEffect } from 'react'
@@ -46,6 +45,7 @@ export function connect(mapStateToProps, mapDispatchToProps) {
           })
         })
         return () => {
+          // 每次组件重新渲染的时候取消上一次的订阅，否则订阅数会一直增加
           unsubscribe()
         }
       })

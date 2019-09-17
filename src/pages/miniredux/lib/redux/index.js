@@ -1,6 +1,5 @@
 /**
  * redux 模拟实现
- * `npm i -S @lxfriday/redux`
  */
 
 // 初始化 redux 中的数据
@@ -13,6 +12,10 @@ const REDUX_INIT = '@@redux/INIT'
  * @param {*} enhancer
  */
 export function createStore(reducer, enhancer) {
+  if (typeof enhancer === 'function') {
+    return enhancer(createStore)(reducer)
+  }
+
   let currentState
   let currentReducer = reducer
   let listeners = []
@@ -74,5 +77,37 @@ export function combineReducers(reducers) {
 
     // 如果发生了变更，大 state 也会返回新生成的 state
     return nextState
+  }
+}
+
+export function compose(...funcs) {
+  if (funcs.length === 0) {
+    return arg => arg
+  }
+  if (funcs.length === 1) {
+    return funcs[0]
+  }
+  return funcs.reduce((a, b) => (...args) => a(b(...args)))
+}
+
+export function applyMiddleware(...middleware) {
+  return createStore => (...args) => {
+    const store = createStore(...args)
+    let dispatch = () => {
+      throw new Error('暂时不能调用')
+    }
+
+    const middlewareAPI = {
+      getState: store.getState,
+      dispatch: (...args) => dispatch(...args),
+    }
+
+    const chains = middleware.map(m => m(middlewareAPI))
+    dispatch = compose(...chains)(store.dispatch)
+
+    return {
+      ...store,
+      dispatch,
+    }
   }
 }
