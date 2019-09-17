@@ -3,6 +3,12 @@ import { Provider, connect } from './lib/react-redux'
 import configStore from './store'
 import { ADD, MINUS } from './reducers/counter'
 const store = configStore()
+
+// Recorder 也使用 connect
+function Recorder({ num }) {
+  return <p style={{ textAlign: 'center' }}>Recorder => num: {num}</p>
+}
+
 function Paragraph({ dispatch, num }) {
   return (
     <div style={{ textAlign: 'center' }}>
@@ -17,10 +23,16 @@ const ConnectParagraph = connect(
   dispatch => ({ dispatch })
 )(Paragraph)
 
+const ConnectRecorder = connect(
+  ({ counter }) => ({ ...counter }),
+  d => ({ d })
+)(Recorder)
+
 export default function ReactRedux() {
   return (
     <Provider store={store}>
       <ConnectParagraph />
+      <ConnectRecorder />
     </Provider>
   )
 }
